@@ -69,6 +69,7 @@ def main():
         user_response = input(question_str)
 
         if str(correct) != user_response:
+            # note the user's incorrect response
             print("Incorrect :( . . . The answer is " + str(correct))
 
     time_delta = time.time() - time_0
