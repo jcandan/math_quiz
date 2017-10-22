@@ -9,15 +9,17 @@ def main():
     questions = []
     time_0 = time.time()
 
-    factors_1 = list(reversed(range(1, 10 + 1)))
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-r", "--random", help = "Randomize set of questions.", action = "store_true")
+    parser.add_argument("-s1", "--start_one", help = "Specify start of range for first term",
+                        type = int, nargs = '?', const = 1)
+    args = parser.parse_args()
+
+    factors_1 = list(reversed(range(args.start_one, 10 + 1)))
     factors_2 = list(reversed(range(1, 10 + 1)))
     for factor_1 in factors_1:
         for factor_2 in factors_2:
             questions.append({'one': factor_1, 'two': factor_2})
-
-    parser = argparse.ArgumentParser()
-    parser.add_argument("-r", "--random", help = "Randomize set of questions.", action = "store_true")
-    args = parser.parse_args()
 
     if args.random:
         random.shuffle(questions)
