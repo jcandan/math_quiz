@@ -21,8 +21,8 @@ def main():
                         type = int, default = 10)
     args = parser.parse_args()
 
-    factors_1 = list(reversed(range(args.start_one, 10 + 1)))
-    factors_2 = list(reversed(range(1, 10 + 1)))
+    factors_1 = list(reversed(range(args.start_one, args.end_one + 1)))
+    factors_2 = list(reversed(range(args.start_two, args.end_two + 1)))
     for factor_1 in factors_1:
         for factor_2 in factors_2:
             questions.append({'one': factor_1, 'two': factor_2})
