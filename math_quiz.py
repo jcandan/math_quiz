@@ -12,19 +12,27 @@ def main():
     operators = {}
     time_0 = time.time()
 
-    epilog = ("Examples"
-              "\n"
-              "python3 math_quiz.py \n"
-              "python3 math_quiz.py -r                     Randomize entire set of terms\n"
-              "python3 math_quiz.py -as                    Add and Subtract entire set of terms\n"
-              "python3 math_quiz.py -asr                   Add and Subtract randomized entire set of terms\n"
-              "python3 math_quiz.py -s1 5 -e1 5            Add 5's\n"
-              "python3 math_quiz.py -s1 5 -e1 5 -as        Add and Subtract 5's\n"
-              "python3 math_quiz.py -s1 5 -e1 5 -e2 5 -md  Multipy and Divide 5 with 1 - 5\n"
-              )
+    description = (
+        "Description:\n"
+        "\n"
+        "Runs a timed quiz of math equations based on a range from 1 to 10."
+        "User can specify the start and end of the range for both terms.\n"
+    )
+
+    epilog = (
+        "Examples:\n"
+        "\n"
+        "python3 math_quiz.py \n"
+        "python3 math_quiz.py -r                     Randomize entire set of terms\n"
+        "python3 math_quiz.py -as                    Add and Subtract entire set of terms\n"
+        "python3 math_quiz.py -asr                   Add and Subtract randomized entire set of terms\n"
+        "python3 math_quiz.py -s1 5 -e1 5            Add 5's\n"
+        "python3 math_quiz.py -s1 5 -e1 5 -as        Add and Subtract 5's\n"
+        "python3 math_quiz.py -s1 5 -e1 5 -e2 5 -md  Multipy and Divide 5 with 1 - 5\n"
+    )
 
     parser = argparse.ArgumentParser(prog = 'python3 math_quiz.py', usage = '%(prog)s [options]',
-                                     epilog = epilog, formatter_class = RawTextHelpFormatter)
+                                     description = description, epilog = epilog, formatter_class = RawTextHelpFormatter)
     parser.add_argument("-r", "--random", help = "Randomize set of questions.", action = "store_true")
     parser.add_argument("-s1", "--start_first", help = "Specify start of range for first term",
                         type = int, default = 1)
