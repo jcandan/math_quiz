@@ -21,7 +21,7 @@ def main():
                         type = int, default = 1)
     parser.add_argument("-e2", "--end_second", help = "Specify end of range for second term",
                         type = int, default = 10)
-    parser.add_argument("-a", "--add", help = "Add the terms", action = "store_true")
+    parser.add_argument("-a", "--add", help = "(Default) Add the terms", action = "store_true")
     parser.add_argument("-s", "--subtract", help = "Subtract the terms", action = "store_true")
     parser.add_argument("-m", "--multiply", help = "Multiply the terms", action = "store_true")
     parser.add_argument("-d", "--divide", help = "Divide the terms", action = "store_true")
