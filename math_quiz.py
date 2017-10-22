@@ -12,7 +12,13 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("-r", "--random", help = "Randomize set of questions.", action = "store_true")
     parser.add_argument("-s1", "--start_one", help = "Specify start of range for first term",
-                        type = int, nargs = '?', const = 1)
+                        type = int, default = 1)
+    parser.add_argument("-e1", "--end_one", help = "Specify end of range for first term",
+                        type = int, default = 10)
+    parser.add_argument("-s2", "--start_two", help = "Specify start of range for second term",
+                        type = int, default = 1)
+    parser.add_argument("-e2", "--end_two", help = "Specify end of range for second term",
+                        type = int, default = 10)
     args = parser.parse_args()
 
     factors_1 = list(reversed(range(args.start_one, 10 + 1)))
