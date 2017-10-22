@@ -7,6 +7,7 @@ import argparse
 
 def main():
     questions = []
+    operators = []
     time_0 = time.time()
 
     parser = argparse.ArgumentParser()
@@ -24,6 +25,15 @@ def main():
     parser.add_argument("-m", "--multiply", help = "Multiply the terms", action = "store_true")
     parser.add_argument("-d", "--divide", help = "Divide the terms", action = "store_true")
     args = parser.parse_args()
+
+    if args.add or not (args.subtract or args.multiply or args.divide):
+        operators.append({'add': '+'})
+    if args.subtract:
+        operators.append({'sub': '-'})
+    if args.multiply:
+        operators.append({'mul': 'x'})
+    if args.divide:
+        operators.append({'truediv': '/'})
 
     terms_1 = list(reversed(range(args.start_first, args.end_first + 1)))
     terms_2 = list(reversed(range(args.start_second, args.end_second + 1)))
