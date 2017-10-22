@@ -53,14 +53,21 @@ def main():
     terms_2 = list(reversed(range(args.start_second, args.end_second + 1)))
     for term_1 in terms_1:
         for term_2 in terms_2:
-            questions.append({'first': term_1, 'second': term_2})
+            for method, symbol in operators.items():
+                questions.append({'first': term_1, 'second': term_2, 'method': method, 'symbol': symbol})
 
     if args.random:
         random.shuffle(questions)
 
     for question in questions:
-        correct = question['first'] + question['second']
-        user_response = input(str(question['first']) + " + " + str(question['second']) + " = ")
+        # evaluate an expression for the given terms and operation, e.g. operator.add(3, 4)
+        expression = "operator.{}({}, {})".format(question['method'], question['first'], question['second'])
+        correct = eval(expression)
+
+        # prompt user with a neatly formatted math question
+        question_str = "{} {} {} = ".format(str(question['first']), question['symbol'], str(question['second']))
+        user_response = input(question_str)
+
         if str(correct) != user_response:
             print("Incorrect :( . . . The answer is " + str(correct))
 
