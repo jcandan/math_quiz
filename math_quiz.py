@@ -9,7 +9,7 @@ from argparse import RawTextHelpFormatter
 
 def main():
     questions = []
-    operators = []
+    operators = {}
     time_0 = time.time()
 
     epilog = ("Examples"
@@ -41,13 +41,13 @@ def main():
     args = parser.parse_args()
 
     if args.add or not (args.subtract or args.multiply or args.divide):
-        operators.append({'add': '+'})
+        operators['add'] = '+'
     if args.subtract:
-        operators.append({'sub': '-'})
+        operators['sub'] = '-'
     if args.multiply:
-        operators.append({'mul': 'x'})
+        operators['mul'] = 'x'
     if args.divide:
-        operators.append({'truediv': '/'})
+        operators['truediv'] = '/'
 
     terms_1 = list(reversed(range(args.start_first, args.end_first + 1)))
     terms_2 = list(reversed(range(args.start_second, args.end_second + 1)))
