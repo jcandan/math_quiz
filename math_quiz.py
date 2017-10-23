@@ -22,7 +22,7 @@ def main():
     epilog = (
         "Examples:\n"
         "\n"
-        "python3 math_quiz.py \n"
+        "python3 math_quiz.py                        Add entire set of terms 1 - 10\n"
         "python3 math_quiz.py -r                     Randomize entire set of terms\n"
         "python3 math_quiz.py -as                    Add and Subtract entire set of terms\n"
         "python3 math_quiz.py -asr                   Add and Subtract randomized entire set of terms\n"
