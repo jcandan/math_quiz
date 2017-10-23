@@ -1,16 +1,16 @@
-#Math_Quiz
+# Math_Quiz
 
 A light-weight interactive math quiz cli.
 
-##Getting Started
+## Getting Started
 
 With this Programme you can create Math-Quizes start and end will be user defined
 
-###Prerequisties
+### Prerequisties
 
 Python 3.*
 
-###Installing
+### Installing
 
 Clone or download the zip and Extract it
 Run math_quiz.py using python 3.*
