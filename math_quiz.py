@@ -62,6 +62,8 @@ def main():
     for term_1 in terms_1:
         for term_2 in terms_2:
             for method, symbol in operators.items():
+                if method == 'sub' and term_2 > term_1:
+                    term_1, term_2 = term_2, term_1
                 questions.append({'first': term_1, 'second': term_2, 'method': method, 'symbol': symbol})
 
     if args.random:
@@ -76,7 +78,7 @@ def main():
         question_str = "{} {} {} = ".format(str(question['first']), question['symbol'], str(question['second']))
         user_response = input(question_str)
 
-        if str(correct) != user_response:
+        if str(correct) != str(user_response):
             # note the user's incorrect response
             print("Incorrect :( . . . The answer is " + str(correct))
 
