@@ -46,6 +46,7 @@ def main():
     parser.add_argument("-s", "--subtract", help = "Subtract the terms", action = "store_true")
     parser.add_argument("-m", "--multiply", help = "Multiply the terms", action = "store_true")
     parser.add_argument("-d", "--divide", help = "Divide the terms", action = "store_true")
+    parser.add_argument("-n", "--negative", help = "Allow negative equations", action = "store_true")
     args = parser.parse_args()
 
     if args.add or not (args.subtract or args.multiply or args.divide):
@@ -62,7 +63,7 @@ def main():
     for term_1 in terms_1:
         for term_2 in terms_2:
             for method, symbol in operators.items():
-                if method == 'sub' and term_2 > term_1:
+                if not args.negative and method == 'sub' and term_2 > term_1:
                     term_1, term_2 = term_2, term_1
                 questions.append({'first': term_1, 'second': term_2, 'method': method, 'symbol': symbol})
 
