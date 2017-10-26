@@ -8,6 +8,12 @@ from argparse import RawTextHelpFormatter
 
 
 def build_questions():
+    """Define and parse command line arguments to generate a list of dictionaries.
+
+    Each dictionary defining a first and second term, and math operator method and symbol
+
+    :return: List of questions
+    """
     questions = []
     operators = {}
 
@@ -74,6 +80,11 @@ def build_questions():
 
 
 def run_quiz(questions):
+    """Loop through and display questions for user responses, and evaluate their correct answer.
+
+    :param questions:
+    :return:
+    """
     time_0 = time.time()
     for question in questions:
         # evaluate an expression for the given terms and operation, e.g. operator.add(3, 4)
