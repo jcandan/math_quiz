@@ -10,7 +10,7 @@ from argparse import RawTextHelpFormatter
 def build_questions():
     """Define and parse command line arguments to generate a list of dictionaries.
 
-    Each dictionary defining a first and second term, and math operator method and symbol
+    Each dictionary defines a first and second term, and math operator method and symbol
 
     :return: List of questions
     """
