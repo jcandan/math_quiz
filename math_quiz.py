@@ -7,10 +7,9 @@ import argparse
 from argparse import RawTextHelpFormatter
 
 
-def main():
+def build_questions():
     questions = []
     operators = {}
-    time_0 = time.time()
 
     description = (
         "Description:\n"
@@ -71,6 +70,11 @@ def main():
     if args.random:
         random.shuffle(questions)
 
+    return questions
+
+
+def run_quiz(questions):
+    time_0 = time.time()
     for question in questions:
         # evaluate an expression for the given terms and operation, e.g. operator.add(3, 4)
         expression = "operator.{}({}, {})".format(question['method'], question['first'], question['second'])
@@ -87,6 +91,11 @@ def main():
     time_delta = time.time() - time_0
     m, s = divmod(time_delta, 60)
     print('Time: %02d:%02d' % (m, s))
+
+
+def main():
+    questions = build_questions()
+    run_quiz(questions)
 
 
 if __name__ == "__main__":
