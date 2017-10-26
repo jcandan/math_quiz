@@ -33,7 +33,7 @@ def build_questions():
         "python3 math_quiz.py -asr                   Add and Subtract randomized entire set of terms\n"
         "python3 math_quiz.py -s1 5 -e1 5            Add 5's\n"
         "python3 math_quiz.py -s1 5 -e1 5 -as        Add and Subtract 5's\n"
-        "python3 math_quiz.py -s1 5 -e1 5 -e2 5 -md  Multipy and Divide 5 with 1 - 5\n"
+        "python3 math_quiz.py -s1 5 -e1 5 -e2 5 -md  Multiply and Divide 5 with 1 - 5\n"
     )
 
     parser = argparse.ArgumentParser(prog = 'python3 math_quiz.py', usage = '%(prog)s [options]',
