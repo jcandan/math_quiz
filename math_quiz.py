@@ -63,9 +63,10 @@ def main():
     for term_1 in terms_1:
         for term_2 in terms_2:
             for method, symbol in operators.items():
+                tmp_1, tmp_2 = term_1, term_2
                 if not args.negative and method == 'sub' and term_2 > term_1:
-                    term_1, term_2 = term_2, term_1
-                questions.append({'first': term_1, 'second': term_2, 'method': method, 'symbol': symbol})
+                    tmp_1, tmp_2 = term_2, term_1
+                questions.append({'first': tmp_1, 'second': tmp_2, 'method': method, 'symbol': symbol})
 
     if args.random:
         random.shuffle(questions)
