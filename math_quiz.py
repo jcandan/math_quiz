@@ -95,9 +95,11 @@ def run_quiz(questions):
         question_str = "{} {} {} = ".format(str(question['first']), question['symbol'], str(question['second']))
         user_response = input(question_str)
 
-        if str(correct) != user_response:
+        if str(correct) != str(user_response):
             # note the user's incorrect response
             print("Incorrect :( . . . The answer is " + str(correct))
+        else:
+            print("Yay you got it :) The answer is indeed " + str(correct) + ". Keep going!")
 
     time_delta = time.time() - time_0
     m, s = divmod(time_delta, 60)
