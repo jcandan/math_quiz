@@ -46,7 +46,6 @@ def build_questions():
     parser.add_argument("-m", "--multiply", help = "Multiply the terms", action = "store_true")
     parser.add_argument("-d", "--divide", help = "Divide the terms", action = "store_true")
     parser.add_argument("-n", "--negative", help = "Allow negative equations", action = "store_true")
-    parser.add_argument("-g", "--geOne", help = "Allows answers less than 1 for division", action = "store_true") 
 
     args = parser.parse_args()
 
@@ -67,7 +66,7 @@ def build_questions():
                 tmp_1, tmp_2 = term_1, term_2
                 if not args.negative and method == 'sub' and term_2 > term_1:
                     tmp_1, tmp_2 = term_2, term_1
-                elif not args.geOne and method == 'truediv' and term_2 > term_1:
+                elif method == 'truediv' and term_2 > term_1:
                     tmp_1, tmp_2 = term_2, term_1
                 questions.append({'first': tmp_1, 'second': tmp_2, 'method': method, 'symbol': symbol})
 
@@ -103,4 +102,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+	main()
