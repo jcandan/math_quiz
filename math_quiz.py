@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/python
 
 import time
 import random
@@ -27,16 +27,16 @@ def build_questions():
     epilog = (
         "Examples:\n"
         "\n"
-        "python3 math_quiz.py \n"
-        "python3 math_quiz.py -r                     Randomize entire set of terms\n"
-        "python3 math_quiz.py -as                    Add and Subtract entire set of terms\n"
-        "python3 math_quiz.py -asr                   Add and Subtract randomized entire set of terms\n"
-        "python3 math_quiz.py -s1 5 -e1 5            Add 5's\n"
-        "python3 math_quiz.py -s1 5 -e1 5 -as        Add and Subtract 5's\n"
-        "python3 math_quiz.py -s1 5 -e1 5 -e2 5 -md  Multipy and Divide 5 with 1 - 5\n"
+        "python math_quiz.py \n"
+        "python math_quiz.py -r                     Randomize entire set of terms\n"
+        "python math_quiz.py -as                    Add and Subtract entire set of terms\n"
+        "python math_quiz.py -asr                   Add and Subtract randomized entire set of terms\n"
+        "python math_quiz.py -s1 5 -e1 5            Add 5's\n"
+        "python math_quiz.py -s1 5 -e1 5 -as        Add and Subtract 5's\n"
+        "python math_quiz.py -s1 5 -e1 5 -e2 5 -md  Multipy and Divide 5 with 1 - 5\n"
     )
 
-    parser = argparse.ArgumentParser(prog = 'python3 math_quiz.py', usage = '%(prog)s [options]',
+    parser = argparse.ArgumentParser(prog = 'python math_quiz.py', usage = '%(prog)s [options]',
                                      description = description, epilog = epilog, formatter_class = RawTextHelpFormatter)
     parser.add_argument("-r", "--random", help = "Randomize set of questions.", action = "store_true")
     parser.add_argument("-s1", "--start_first", help = "Specify start of range for first term",
@@ -93,15 +93,15 @@ def run_quiz(questions):
 
         # prompt user with a neatly formatted math question
         question_str = "{} {} {} = ".format(str(question['first']), question['symbol'], str(question['second']))
-        user_response = input(question_str)
+        user_response = raw_input(question_str)
 
         if str(correct) != user_response:
             # note the user's incorrect response
-            print("Incorrect :( . . . The answer is " + str(correct))
+            print "Incorrect :( . . . The answer is " + str(correct)
 
     time_delta = time.time() - time_0
     m, s = divmod(time_delta, 60)
-    print('Time: %02d:%02d' % (m, s))
+    print 'Time: %02d:%02d' % (m, s)
 
 
 def main():
