@@ -97,7 +97,7 @@ def run_quiz(questions):
         question_str = "{} {} {} = ".format(str(question['first']), question['symbol'], str(question['second']))
         user_response = input(question_str)
 
-        if str(correct) != user_response:
+        if str(correct) != str(user_response):
             # note the user's incorrect response
             print("Incorrect :( . . . The answer is " + str(correct))
 
