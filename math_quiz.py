@@ -61,7 +61,7 @@ def build_questions():
     if args.multiply:
         operators['mul'] = 'x'
     if args.divide:
-        operators['truediv'] = '/'
+        operators['floordiv'] = '/'
 
     terms_1 = list(reversed(range(args.start_first, args.end_first + 1)))
     terms_2 = list(reversed(range(args.start_second, args.end_second + 1)))
@@ -69,6 +69,8 @@ def build_questions():
         for term_2 in terms_2:
             for method, symbol in operators.items():
                 tmp_1, tmp_2 = term_1, term_2
+                if method == 'floordiv':
+                    tmp_1 = term_1 * term_2
                 if not args.negative and method == 'sub' and term_2 > term_1:
                     tmp_1, tmp_2 = term_2, term_1
                 questions.append({'first': tmp_1, 'second': tmp_2, 'method': method, 'symbol': symbol})
