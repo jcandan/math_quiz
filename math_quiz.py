@@ -4,6 +4,7 @@ import time
 import random
 import operator
 import argparse
+from builtins import input
 from argparse import RawTextHelpFormatter
 
 
