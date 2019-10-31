@@ -13,7 +13,7 @@ def build_questions():
 
     Each dictionary defines a first and second term, and math operator method and symbol
 
-    :return: List of questions
+    :return: List of questions.
     """
     questions = []
     operators = {}
@@ -90,16 +90,16 @@ def run_quiz(questions):
     """
     time_0 = time.time()
     for question in questions:
-        # evaluate an expression for the given terms and operation, e.g. operator.add(3, 4)
+        # Evaluate an expression for the given terms and operation, e.g. operator.add(3, 4).
         expression = "operator.{}({}, {})".format(question['method'], question['first'], question['second'])
         correct = eval(expression)
 
-        # prompt user with a neatly formatted math question
+        # Prompt user with a neatly formatted math question.
         question_str = "{} {} {} = ".format(str(question['first']), question['symbol'], str(question['second']))
         user_response = input(question_str)
 
         if str(correct) != str(user_response):
-            # note the user's incorrect response
+            # Note the user's incorrect response.
             print("Incorrect :( . . . The answer is " + str(correct))
 
     time_delta = time.time() - time_0
